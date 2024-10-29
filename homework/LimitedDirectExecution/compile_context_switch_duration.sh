@@ -1,0 +1,1 @@
+g++ context_switch_duration.cpp -o context_switch_duration ../utils/utils.cpp -I../utils

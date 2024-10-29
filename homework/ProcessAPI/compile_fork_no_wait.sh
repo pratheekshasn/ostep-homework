@@ -1,0 +1,1 @@
+g++ fork_no_wait.cpp -o fork_no_wait ../utils/utils.cpp -I../utils
