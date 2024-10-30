@@ -29,7 +29,13 @@ int main(int argc, char** argv)
     {
         for (int i = 0; i < n; i++)
         {
-            array[i] = i;
+            array[i] = i; // RSS increases as this loop runs. But for 100 megabytes, RSS is 102404. What are the extra 4 bytes for?
+            std::cout << array[i] << std::endl; // Without this line, RSS is 102404. With this line, RSS keeps on increasing. Why?
+            // If the array assignment is commented out, and only the print statement is present, RSS is 4.
+            // Which is the same value when the array is allocated, and not yet accessed if the line were to be present.
+            // So with the array assignment and the print statement, RSS keeps on increasing. But why is that?
+            // The print statement should not be using the heap and causing the RSS of that particular [anon] to increase.
+            // sleep(1);
         }
     }
     return 0;
